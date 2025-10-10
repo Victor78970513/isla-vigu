@@ -1,0 +1,20 @@
+import 'package:go_router/go_router.dart';
+import 'package:isla_vigu/core/router/routes.dart';
+import 'package:isla_vigu/features/auth/presentation/pages/auth_page.dart';
+import 'package:isla_vigu/features/splash/presentation/pages/splash_screen.dart';
+
+class AppRouter {
+  static final GoRouter router = GoRouter(
+    routes: [
+      GoRoute(
+        path: AppRoutes.homeRoute,
+        builder: (context, state) => SplashScreen(),
+      ),
+      //
+      GoRoute(
+        path: AppRoutes.authRoute,
+        builder: (context, state) => AuthPage(),
+      )
+    ],
+  );
+}

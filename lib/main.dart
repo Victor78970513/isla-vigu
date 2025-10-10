@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:isla_vigu/core/router/router.dart';
 
 void main() => runApp(const MyApp());
 
@@ -7,16 +8,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
+      debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
     );
   }
 }
