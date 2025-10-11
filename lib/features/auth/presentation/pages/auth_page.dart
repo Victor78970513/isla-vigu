@@ -15,8 +15,9 @@ class AuthPage extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => getIt<AuthSelectionCubit>(),
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
-          child: Center(
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -46,8 +47,9 @@ class AuthPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 64),
+                SizedBox(height: 24),
                 AuthSelection(),
+                SizedBox(height: 20),
                 BlocBuilder<AuthSelectionCubit, AuthSelectionEnum>(
                     builder: (context, state) {
                   switch (state) {
@@ -56,7 +58,7 @@ class AuthPage extends StatelessWidget {
                     case AuthSelectionEnum.signUpSelection:
                       return SignUpPage();
                   }
-                })
+                }),
               ],
             ),
           ),

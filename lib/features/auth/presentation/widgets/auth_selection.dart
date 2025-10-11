@@ -14,7 +14,6 @@ class AuthSelection extends StatelessWidget {
         width: double.infinity,
         height: 64,
         decoration: BoxDecoration(
-          color: Colors.red,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
@@ -34,14 +33,14 @@ class AuthSelection extends StatelessWidget {
             Expanded(
               flex: 1,
               child: AuthSelectionItem(
-                text: "Sign In",
+                text: "Iniciar Sesion",
                 authSelectionEnum: AuthSelectionEnum.loginSelection,
               ),
             ),
             Expanded(
               flex: 1,
               child: AuthSelectionItem(
-                text: "Create Account",
+                text: "Crear Cuenta",
                 authSelectionEnum: AuthSelectionEnum.signUpSelection,
               ),
             ),
