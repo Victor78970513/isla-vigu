@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:isla_vigu/core/router/router.dart';
+import 'package:isla_vigu/service_locator.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  initDependencies();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

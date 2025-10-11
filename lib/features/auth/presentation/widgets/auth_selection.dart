@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:isla_vigu/core/theme/app_colors.dart';
+import 'package:isla_vigu/features/auth/presentation/bloc/auth_selection/auth_selection_cubit.dart';
 
 class AuthSelection extends StatelessWidget {
   const AuthSelection({super.key});
@@ -31,12 +33,16 @@ class AuthSelection extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: AuthSelectionItem(text: "Sign In"),
+              child: AuthSelectionItem(
+                text: "Sign In",
+                authSelectionEnum: AuthSelectionEnum.loginSelection,
+              ),
             ),
             Expanded(
               flex: 1,
               child: AuthSelectionItem(
                 text: "Create Account",
+                authSelectionEnum: AuthSelectionEnum.signUpSelection,
               ),
             ),
           ],
@@ -48,31 +54,48 @@ class AuthSelection extends StatelessWidget {
 
 class AuthSelectionItem extends StatelessWidget {
   final String text;
+  final AuthSelectionEnum authSelectionEnum;
   const AuthSelectionItem({
     super.key,
     required this.text,
+    required this.authSelectionEnum,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: AppColors.skyBlue,
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: AppColors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
+    return BlocBuilder<AuthSelectionCubit, AuthSelectionEnum>(
+      builder: (context, state) {
+        return GestureDetector(
+          onTap: () {
+            context
+                .read<AuthSelectionCubit>()
+                .changeAuthSelection(authSelectionEnum);
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: authSelectionEnum == state
+                    ? AppColors.skyBlue
+                    : AppColors.white,
+              ),
+              child: Center(
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    color: authSelectionEnum == state
+                        ? AppColors.white
+                        : Color(0xff4B5563),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
