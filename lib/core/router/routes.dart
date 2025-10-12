@@ -1,5 +1,7 @@
 class AppRoutes {
-  static final homeRoute = '/';
+  static final splashRoute = '/';
 
   static final authRoute = '/auth';
+
+  static final homeRoute = "/home";
 }

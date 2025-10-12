@@ -10,18 +10,46 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({required this.authRemoteDatasource});
 
   @override
-  Future<Either<Failures, UserCredential>> login({
+  Future<Either<Failures, User>> loginWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
     try {
-      final user =
-          await authRemoteDatasource.login(email: email, password: password);
+      final user = await authRemoteDatasource.signInWithEmailAndPassword(
+          email: email, password: password);
       return right(user);
     } catch (e) {
       return left(
         LoginFailure(),
       );
+    }
+  }
+
+  @override
+  Future<Either<Failures, User>> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final user = await authRemoteDatasource.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return right(user);
+    } catch (e) {
+      return left(
+        LoginFailure(),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failures, User>> checkCurrentUser() async {
+    try {
+      final user = await authRemoteDatasource.checkCurrentUser();
+      return right(user);
+    } catch (e) {
+      return left(ServerFailure());
     }
   }
 }

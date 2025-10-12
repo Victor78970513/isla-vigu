@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:isla_vigu/core/theme/app_colors.dart';
 
 class AuthInput extends StatelessWidget {
+  final TextEditingController controller;
   final bool showSuffixcIcon;
   final IconData prefixIcon;
   final String title;
   final String hintText;
   const AuthInput({
     super.key,
+    required this.controller,
     required this.prefixIcon,
     required this.title,
     this.showSuffixcIcon = false,
@@ -42,6 +44,7 @@ class AuthInput extends StatelessWidget {
               ],
             ),
             child: TextField(
+              controller: controller,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: TextStyle(

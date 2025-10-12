@@ -8,9 +8,9 @@ final class AuthenticationInitial extends AuthenticationState {}
 final class AuthenticationLoading extends AuthenticationState {}
 
 final class AuthenticationSuccess extends AuthenticationState {
-  final UserCredential userCredential;
+  final User user;
 
-  AuthenticationSuccess({required this.userCredential});
+  AuthenticationSuccess({required this.user});
 }
 
 final class AuthenticationError extends AuthenticationState {}
