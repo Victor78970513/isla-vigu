@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1047525505853",
+    "project_id": "isla-vigu",
+    "storage_bucket": "isla-vigu.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047525505853:android:4ac0eb7fc5e1fb031de354",
+        "android_client_info": {
+          "package_name": "com.example.isla_vigu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8R5uuj4Lk2m7_Wxg3N9bLLShSjG81_x8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

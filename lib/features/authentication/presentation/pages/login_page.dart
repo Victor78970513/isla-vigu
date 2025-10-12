@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:isla_vigu/core/theme/app_colors.dart';
+import 'package:isla_vigu/features/authentication/presentation/bloc/authentication/authentication_cubit.dart';
 import 'package:isla_vigu/features/authentication/presentation/widgets/auth_button.dart';
 import 'package:isla_vigu/features/authentication/presentation/widgets/auth_input.dart';
 
@@ -8,37 +10,47 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          AuthInput(
-            title: "Correo Electronico",
-            prefixIcon: Icons.message,
-            hintText: "Ingresa tu Correo",
+    return BlocBuilder<AuthenticationCubit, AuthenticationState>(
+      builder: (context, state) {
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              AuthInput(
+                title: "Correo Electronico",
+                prefixIcon: Icons.message,
+                hintText: "Ingresa tu Correo",
+              ),
+              AuthInput(
+                title: "Contraseña",
+                hintText: "Ingresa tu contraseña",
+                prefixIcon: Icons.lock,
+                showSuffixcIcon: true,
+              ),
+              SizedBox(height: 14),
+              Text(
+                "¿Olvidaste tu contraseña?",
+                style: TextStyle(
+                  color: AppColors.skyBlue,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(height: 24),
+              AuthButton(
+                text: "Iniciar Sesión",
+                onTap: () {
+                  context.read<AuthenticationCubit>().loginWithEmailAndPassowrd(
+                        email: "prueba@gmail.com",
+                        password: "12345678",
+                      );
+                },
+              ),
+            ],
           ),
-          AuthInput(
-            title: "Contraseña",
-            hintText: "Ingresa tu contraseña",
-            prefixIcon: Icons.lock,
-            showSuffixcIcon: true,
-          ),
-          SizedBox(height: 14),
-          Text(
-            "¿Olvidaste tu contraseña?",
-            style: TextStyle(
-              color: AppColors.skyBlue,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          SizedBox(height: 24),
-          AuthButton(
-            text: "Iniciar Sesión",
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

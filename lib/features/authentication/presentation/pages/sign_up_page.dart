@@ -34,7 +34,10 @@ class SignUpPage extends StatelessWidget {
             showSuffixcIcon: true,
           ),
           SizedBox(height: 12),
-          AuthButton(text: "Crear cuenta")
+          AuthButton(
+            text: "Crear cuenta",
+            onTap: () {},
+          )
         ],
       ),
     );

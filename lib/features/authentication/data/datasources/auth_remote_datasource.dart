@@ -18,6 +18,7 @@ class AuthRemoteDatasource {
 
       return userCredential;
     } catch (e) {
+      print(e.toString());
       throw LoginException();
     }
   }
