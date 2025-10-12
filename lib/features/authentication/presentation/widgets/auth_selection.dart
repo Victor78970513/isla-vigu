@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:isla_vigu/core/theme/app_colors.dart';
-import 'package:isla_vigu/features/auth/presentation/bloc/auth_selection/auth_selection_cubit.dart';
+import 'package:isla_vigu/features/authentication/presentation/bloc/auth_selection/auth_selection_cubit.dart';
 
 class AuthSelection extends StatelessWidget {
   const AuthSelection({super.key});

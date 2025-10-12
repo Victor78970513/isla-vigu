@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:isla_vigu/core/theme/app_colors.dart';
-import 'package:isla_vigu/features/auth/presentation/widgets/auth_button.dart';
-import 'package:isla_vigu/features/auth/presentation/widgets/auth_input.dart';
+import 'package:isla_vigu/features/authentication/presentation/widgets/auth_button.dart';
+import 'package:isla_vigu/features/authentication/presentation/widgets/auth_input.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:isla_vigu/core/router/routes.dart';
-import 'package:isla_vigu/features/auth/presentation/pages/auth_page.dart';
+import 'package:isla_vigu/features/authentication/presentation/pages/auth_page.dart';
 import 'package:isla_vigu/features/splash/presentation/pages/splash_screen.dart';
 
 class AppRouter {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:isla_vigu/core/theme/app_colors.dart';
-import 'package:isla_vigu/features/auth/presentation/bloc/auth_selection/auth_selection_cubit.dart';
-import 'package:isla_vigu/features/auth/presentation/pages/login_page.dart';
-import 'package:isla_vigu/features/auth/presentation/pages/sign_up_page.dart';
-import 'package:isla_vigu/features/auth/presentation/widgets/auth_selection.dart';
+import 'package:isla_vigu/features/authentication/presentation/bloc/auth_selection/auth_selection_cubit.dart';
+import 'package:isla_vigu/features/authentication/presentation/pages/login_page.dart';
+import 'package:isla_vigu/features/authentication/presentation/pages/sign_up_page.dart';
+import 'package:isla_vigu/features/authentication/presentation/widgets/auth_selection.dart';
 import 'package:isla_vigu/service_locator.dart';
 
 class AuthPage extends StatelessWidget {
