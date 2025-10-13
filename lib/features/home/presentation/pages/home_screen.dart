@@ -1,19 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:isla_vigu/features/home/presentation/widgets/custom_bottom_navigation_bar.dart';
+import 'package:isla_vigu/features/home/presentation/widgets/bouncing_nav_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
+      extendBody: true,
+      body: IndexedStack(
+        index: currentIndex,
         children: [
-          Text("ANIA"),
-          Text("ANIA2"),
+          Container(color: Colors.blue),
+          Container(color: Colors.red),
+          Container(color: Colors.green),
+          Container(color: Colors.purple),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      bottomNavigationBar: BouncingNavBar(
+        onTapChanged: (index) {
+          setState(() => currentIndex = index);
+        },
+        backgroundColor: Colors.white,
+        items: [
+          Icon(Icons.bed, color: Colors.black),
+          Icon(Icons.sports_volleyball, color: Colors.black),
+          Icon(Icons.calendar_month, color: Colors.black),
+          Icon(Icons.person, color: Colors.black),
+        ],
+      ),
     );
   }
 }
