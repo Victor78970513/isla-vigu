@@ -10,8 +10,8 @@ import 'package:isla_vigu/features/authentication/presentation/pages/sign_up_pag
 import 'package:isla_vigu/features/authentication/presentation/widgets/auth_selection.dart';
 import 'package:isla_vigu/service_locator.dart';
 
-class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+class AuthScreen extends StatelessWidget {
+  const AuthScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
