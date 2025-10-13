@@ -74,7 +74,7 @@ class _BouncingNavBarState extends State<BouncingNavBar>
         curve: Curves.bounceOut,
       ),
     ).animate(controller);
-    // controller.forward(from: 1.0);
+    controller.forward(from: 1.0);
   }
 
   @override
