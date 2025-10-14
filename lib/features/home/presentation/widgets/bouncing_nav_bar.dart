@@ -99,6 +99,11 @@ class _BouncingNavBarState extends State<BouncingNavBar>
                 width: currentWidht,
                 decoration: BoxDecoration(
                   color: widget.backgroundColor,
+                  border: Border(
+                    top: BorderSide(color: Color(0xffF3F4F6)),
+                    left: BorderSide(color: Color(0xffF3F4F6)),
+                    right: BorderSide(color: Color(0xffF3F4F6)),
+                  ),
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),
                   ),
@@ -109,10 +114,22 @@ class _BouncingNavBarState extends State<BouncingNavBar>
                     widget.items.length,
                     (index) {
                       final item = widget.items[index];
-                      final child = CircleAvatar(
-                        backgroundColor: widget.backgroundColor,
-                        radius: 30,
-                        child: item,
+                      final child = Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border(
+                            top: BorderSide(
+                              color: index == _currentIndex
+                                  ? Color(0xffF3F4F6)
+                                  : Colors.transparent,
+                            ),
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: widget.backgroundColor,
+                          radius: 30,
+                          child: item,
+                        ),
                       );
                       if (index == _currentIndex) {
                         return CustomPaint(

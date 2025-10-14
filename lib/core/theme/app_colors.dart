@@ -6,4 +6,5 @@ class AppColors {
   static final skyBlue = Color(0xff369AE4);
   static final lightSkyBlue = Color(0xffAFD5F2);
   static final white = Color(0xffFFFFFF);
+  static final scaffoldColor = Color(0xffF9FAFB);
 }

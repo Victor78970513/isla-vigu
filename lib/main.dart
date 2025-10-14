@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:isla_vigu/core/router/router.dart';
+import 'package:isla_vigu/core/theme/theme.dart';
 import 'package:isla_vigu/features/authentication/presentation/bloc/authentication/authentication_cubit.dart';
 import 'package:isla_vigu/firebase_options.dart';
 import 'package:isla_vigu/service_locator.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter.router,
+      theme: AppTheme.appTheme,
       debugShowCheckedModeBanner: false,
       title: 'Material App',
     );
