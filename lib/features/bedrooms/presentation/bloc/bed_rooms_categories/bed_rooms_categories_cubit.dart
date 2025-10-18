@@ -11,15 +11,23 @@ class BedRoomsCategoriesCubit extends Cubit<BedRoomsCategoriesState> {
     required this.bedRoomsRepository,
   }) : super(BedRoomsCategoriesInitial());
 
+  RoomsCategoriesModel? currentCategorySelected;
+  List<RoomsCategoriesModel>? bedRoomsCategories;
+
   Future<void> getRoomsCategories() async {
     emit(BedRooomsCategoriesLoading());
     final response = await bedRoomsRepository.getRoomsCategories();
-    response.fold((failure) {
-      BedRoomsCategoriesError();
-    }, (categories) {
-      emit(
-        BedRoomsCategoriesSuccess(categories: categories),
-      );
-    });
+    response.fold(
+      (failure) {
+        BedRoomsCategoriesError();
+      },
+      (categories) {
+        currentCategorySelected = categories.first;
+        bedRoomsCategories = categories;
+        emit(
+          BedRoomsCategoriesSuccess(categories: categories),
+        );
+      },
+    );
   }
 }

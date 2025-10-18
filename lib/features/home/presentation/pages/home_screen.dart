@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isla_vigu/features/bedrooms/presentation/pages/bed_rooms_screens.dart';
+import 'package:isla_vigu/features/bedrooms/presentation/pages/bed_rooms_screen.dart';
 import 'package:isla_vigu/features/home/presentation/widgets/bouncing_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: IndexedStack(
         index: currentIndex,
         children: [
-          BedRoomsScreens(),
+          BedRoomsScreen(),
           Container(color: Colors.red),
           Container(color: Colors.green),
           Container(color: Colors.purple),

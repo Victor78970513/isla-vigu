@@ -10,17 +10,20 @@ class CategoriesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BedRoomsCategoriesCubit, BedRoomsCategoriesState>(
       builder: (context, state) {
+        final currentCategorySelected =
+            context.read<BedRoomsCategoriesCubit>().currentCategorySelected;
         switch (state) {
           case BedRoomsCategoriesSuccess(categories: final categories):
             return Row(
               children: List.generate(categories.length, (index) {
                 final categorie = categories[index];
+                final isSelect = currentCategorySelected == categorie;
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: Container(
                     height: 42,
                     decoration: BoxDecoration(
-                      color: AppColors.skyBlue,
+                      color: isSelect ? AppColors.skyBlue : AppColors.white,
                       borderRadius: BorderRadius.circular(999),
                     ),
                     child: Padding(
